@@ -8,8 +8,6 @@
 	 Search: <input ng-model="$ctrl.query" /><hr>
     <div ng-controller="TodoListController as Main">
     <ul class="unstyled">
-	<span ng-repeat="doneitem in Main.done">{{doneitem}}</span>
-
       <li ng-repeat="item in Main.data | filter:$ctrl.query"">
 		<label class="checkbox">
 		<input type="checkbox" >
