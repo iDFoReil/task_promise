@@ -1,0 +1,4 @@
+{
+	"events": ["event_1","event_2"],
+	"path":"./json/1/additionalEvents.json"
+}
