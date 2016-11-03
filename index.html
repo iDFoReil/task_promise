@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  </head>
+  <body>
+    <h1>Angular?</h1>
+	 Search: <input ng-model="$ctrl.query" /><hr>
+    <div ng-controller="TodoListController as Main">
+    <ul class="unstyled">
+	<span ng-repeat="doneitem in Main.done">{{doneitem}}</span>
+
+      <li ng-repeat="item in Main.data | filter:$ctrl.query"">
+		<label class="checkbox">
+		<input type="checkbox" >
+		<span>{{item}}</span>
+		</label>
+	  </li>
+	</ul> 
+    </div>
+	<script src="js/controller.js"></script>
+	<script src="js/services/service.js"></script>
+	<script src="js/services/loading.js"></script>
+	</body>
+</html>
