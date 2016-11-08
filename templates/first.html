@@ -1,0 +1,11 @@
+<div ng-controller="firstController as first">
+<input type="button" value="Delete" ng-click="deleteFunction()">
+<ul>
+      <li ng-repeat="item in first.data | filter:$ctrl.query"">
+		<label class="checkbox">
+		<input type="checkbox" ng-model="item.done">
+		<span class="done-{{item.done}}">{{item.data}}</span>
+		</label>
+	  </li>
+	</ul>
+</div>

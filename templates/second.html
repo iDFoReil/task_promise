@@ -1,0 +1,12 @@
+<div ng-controller="secondController as second">
+<h1>Second</h1>
+<ul>
+      <li ng-repeat="item in second.data | filter:$ctrl.query"">
+		<label class="checkbox">
+		<input type="checkbox" ng-model="item.done">
+		<span class="done-{{item.done}}">{{item.data}}</span>
+
+		</label>
+	  </li>
+	</ul>
+</div>

@@ -2,22 +2,32 @@
 <html ng-app="app">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <h1>Angular?</h1>
 	 Search: <input ng-model="$ctrl.query" /><hr>
-    <div ng-controller="TodoListController as Main">
-    <ul class="unstyled">
-      <li ng-repeat="item in Main.data | filter:$ctrl.query"">
-		<label class="checkbox">
-		<input type="checkbox" >
-		<span>{{item}}</span>
-		</label>
-	  </li>
-	</ul> 
-    </div>
-	<script src="js/controller.js"></script>
-	<script src="js/services/service.js"></script>
-	<script src="js/services/loading.js"></script>
+	<table width="100%">
+    <tr>
+	<td width="50%">
+	<ul>
+	<li><a ui-sref="home">Home</a></li>
+	<li><a ui-sref="first">first</a></li>
+	<li><a ui-sref="second">second</a></li>
+	</ul>
+	</td>
+	<td width="50%">
+	<ui-view>hi</ui-view>
+	</td>
+	</tr>
+	</table>
+	<script src="./js/main.js"></script>
+	<script src="./js/services/loading.module.js"></script>
+	<script src="./js/services/loading.js"></script>
+	<script src="./js/firstController.js"></script>
+	<script src="./js/secondController.js"></script>
+	<script src="./js/services/routing.js"></script>
+
 	</body>
 </html>

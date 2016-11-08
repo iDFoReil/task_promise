@@ -1,35 +1,21 @@
 angular
-	.module('app.loading', [])
-	.service('loadService', ['$http','mainService', loadService]);
+	.module('app.loading')
+	.service('loadService', ['$http', loadService]);
 	
-	function loadService($http, mainService){
+	function loadService($http){
 		var serv = this;
 		
 		serv.load = load;
+		serv.myArray = [];
 		
-		function load(){
-			var random = randomNumber(1,2);
-			$http.get("./json/"+random+".json")
+		function load(a){
+			$http.get("./json/"+a+".json")
 			.then(function(res){
 				for(var i=0;i<res.data.events.length;i++){
-					//mainService.data.push({anevent:res.data.events[i], done:"false"})
-					mainService.data[mainService.data.length] = res.data.events[i];
+					serv.myArray.push({data:res.data.events[i], done:false,})
 				}
-				return loadNextFile(res.data.path);
-				},function(){alert("не то");
-			}).then(function(res){
-				for(var i=0;i<res.data.additionalEvents.length;i++){
-					mainService.data[mainService.data.length] = res.data.additionalEvents[i];
-				}
-			}, function(){
-				alert("все не то");
+				return console.log("ok");
+				},function(){alert("Данные не загружены");
 			})
-			function loadNextFile(path){
-				return $http.get(path);
-			}
-			
-			function randomNumber(min, max) {
-				return Math.floor(Math.random() * (max - min + 1)) + min;
-			}
 		}
 	}
